@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tip Calculator</title>
+	<link rel="stylesheet" type="text/css" href="tipcal.css">
+</head>
+<body>
+	<div id="container">
+		<h1>Tip Calculator</h1>
+		
+		<div id="calculator">
+			<form>
+				<p>How much is the bill?</p>
+				₹<input type="number" id="amount" placeholder="Bill Amount">
+				<p>How was the service?</p>
+				<select id="ser">
+					<option disabled selected value="0">--Choose an option--</option>
+					<option value="0.1">Outstanding-10%</option>
+					<option value="0.08">Good-8%</option>
+					<option value="0.05">It was ok-5%</option>
+					<option value="0.02">Bad-2%</option>
+					<option value="0.0">Terrible-0%</option>
+				</select>
+				<p>Number of people</p>
+				<input type="number" id="num">
+				<input type="button" value="Calculate" onclick="caltip()">
+			</form><br>
+			<div id="totaltip">
+				₹<input type="number" id="ttip" value="" disabled> Each
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	
+	function caltip()
+	{
+		var billamount = document.getElementById("amount").value;
+		var sr = document.getElementById("ser").value;
+		var num = document.getElementById("num").value;
+		if (billamount === "" || num == 0 || sr==0) 
+		{
+    		alert("Please enter values");
+    		return;
+ 		}
+		var tttip =Math.round((billamount*sr)/num);
+		document.getElementById("ttip").value=tttip;
+	}
+	</script>
+</body>
+</html>
